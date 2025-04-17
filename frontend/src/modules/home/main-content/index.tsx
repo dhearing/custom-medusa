@@ -8,15 +8,37 @@ import RichTextContent from "../../common/components/rich-text/rich-text-content
 const MainContent = () => {
   const homepageData = useContext(HomepageContext)
   const content = homepageData?.content ?? null
+  
+  // Function to check if HTML content has actual text content
+  const hasActualContent = (htmlString: string) => {
+    // If it's an empty paragraph or just has spaces, consider it empty
+    if (htmlString.trim() === '<p class="editor-paragraph"></p>' || 
+        htmlString.includes('<p class="editor-paragraph">') && 
+        !htmlString.replace(/<p class="editor-paragraph">|<\/p>/g, '').trim()) {
+      return false;
+    }
+    
+    // Remove all HTML tags and check if there's any text content left
+    const textContent = htmlString.replace(/<[^>]*>/g, '').trim();
+    return textContent.length > 0;
+  };
 
+  // More robust check for content - handles empty strings, null, undefined, and empty HTML
+  const hasValidContent = content && 
+                          typeof content === 'string' && 
+                          hasActualContent(content);
+  
+  console.log("Content:", content);
+  console.log("Has valid content:", hasValidContent);
+  
   return (
-    <div className="w-full border-b border-ui-border-base relative p-8 small:p-0">
-      {content ? (
+    <div className="w-full border-ui-border-base relative p-8 small:p-0">
+      {hasValidContent ? (
         <div className="w-full">
           <RichTextContent content={content} />
         </div>
       ) : (
-        <div className="absolute inset-0 z-10 flex flex-col justify-center items-center text-center small:p-32 gap-6">
+        <div className="flex flex-col justify-center items-center text-center small:p-32 gap-6">
           <span>
             <Heading
               level="h1"
@@ -41,6 +63,9 @@ const MainContent = () => {
               <Github />
             </button>
           </a>
+          <span>
+            <p>Please insert content in the Homepage Editor section of the Backend</p>
+          </span>
         </div>
       )}
     </div>

@@ -57,7 +57,7 @@ const SideMenu = () => {
                       </button>
                     </div>
                     <ul className="flex flex-col gap-6 items-start justify-start">
-                      {menuItems ? menuItems.map((item) => {
+                      {menuItems.length > 0 ? menuItems.map((item) => {
                         return (
                           <li key={item.title}>
                             <LocalizedClientLink
@@ -71,24 +71,11 @@ const SideMenu = () => {
                           </li>
                         )
                       }) : (
-                        Object.entries(SideMenuItems).map(([name, href]) => {
-                          return (
-                            <li key={name}>
-                              <LocalizedClientLink
-                                href={href}
-                                className="text-3xl leading-10 hover:text-ui-fg-disabled"
-                                onClick={close}
-                                data-testid={`${name.toLowerCase()}-link`}
-                              >
-                                {name}
-                              </LocalizedClientLink>
-                            </li>
-                          )
-                        })
+                        <p>Please insert menu items in the navigation menu editor section of the Backend</p>
                       )}
                     </ul>
                     <div className="flex justify-center">
-                      © {new Date().getFullYear()} Medusa Store. All rights reserved.
+                      © {new Date().getFullYear()} Store Name. All rights reserved.
                     </div>
                   </div>
                 </PopoverPanel>

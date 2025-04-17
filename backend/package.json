@@ -1,8 +1,8 @@
 {
-  "name": "medusa-starter-default",
+  "name": "backend",
   "version": "0.0.1",
-  "description": "A starter for Medusa projects.",
-  "author": "Medusa (https://medusajs.com)",
+  "description": "A backend starter for E-Commerce projects.",
+  "author": "David Hearing",
   "license": "MIT",
   "keywords": [
     "sqlite",

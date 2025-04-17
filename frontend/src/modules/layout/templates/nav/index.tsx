@@ -21,7 +21,7 @@ export default async function Nav() {
               className="txt-compact-xlarge-plus hover:text-ui-fg-base uppercase small:text-wrap"
               data-testid="nav-store-link"
             >
-              Residential Railing & Metal Works LLC
+              Store Name
             </LocalizedClientLink>
           </div>
 

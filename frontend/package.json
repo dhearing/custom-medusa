@@ -1,11 +1,14 @@
 {
-  "name": "medusa-next",
+  "name": "frontend",
   "version": "1.0.3",
   "private": true,
-  "author": "Kasper Fabricius Kristensen <kasper@medusajs.com> & Victor Gerbrands <victor@medusajs.com> (https://www.medusajs.com)",
-  "description": "Next.js Starter to be used with Medusa V2",
+  "author": "David Hearing",
+  "description": "A frontend starter for E-Commerce projects.",
   "keywords": [
-    "medusa-storefront"
+    "ecommerce",
+    "frontend",
+    "nextjs",
+    "tailwindcss"
   ],
   "scripts": {
     "dev": "next dev --turbopack -p 8000",
