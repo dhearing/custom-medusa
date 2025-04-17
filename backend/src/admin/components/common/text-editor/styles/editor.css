@@ -1,0 +1,280 @@
+.ProseMirror {
+  min-height: 200px;
+  outline: none;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont;
+  color: var(--fg-base);
+  position: relative;
+  isolation: isolate;
+  overflow: visible;
+  width: 100%;
+  padding: 1rem;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  display: flow-root;
+}
+
+/* Reset paragraph styles to allow wrapping */
+.ProseMirror p {
+  margin: 0.5em 0;
+  position: relative;
+  width: 100%;
+  line-height: 1.6;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  clear: none !important;
+  display: block;
+  overflow: visible;
+}
+
+.ProseMirror p:after {
+  display: none;
+}
+
+.ProseMirror > * + * {
+  margin-top: 0.75em;
+}
+
+.ProseMirror ul,
+.ProseMirror ol {
+  padding: 0 1rem;
+  list-style-position: outside;
+}
+
+.ProseMirror ul {
+  list-style-type: disc;
+}
+
+.ProseMirror ol {
+  list-style-type: decimal;
+}
+
+.ProseMirror ol ol {
+  list-style-type: upper-alpha;
+}
+
+.ProseMirror ol ol ol {
+  list-style-type: upper-roman;
+}
+
+.ProseMirror ul ul {
+  list-style-type: circle;
+}
+
+.ProseMirror ul ul ul {
+  list-style-type: square;
+}
+
+.ProseMirror li {
+  margin: 0.5em 0;
+  position: relative;
+  list-style-position: outside;
+  margin-left: 1em;
+}
+
+.ProseMirror h1 {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.ProseMirror h2 {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.ProseMirror h3 {
+  font-size: 1.25em;
+  font-weight: bold;
+}
+
+.ProseMirror code {
+  background-color: var(--bg-base);
+  color: var(--fg-base);
+  padding: 0.25em;
+  border-radius: 0.25em;
+}
+
+.ProseMirror pre {
+  background: var(--bg-base);
+  color: var(--fg-base);
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border);
+}
+
+.ProseMirror pre code {
+  color: inherit;
+  padding: 0;
+  background: none;
+  font-size: 0.8rem;
+}
+
+.ProseMirror mark {
+  background-color: var(--bg-highlight);
+  color: var(--fg-base);
+}
+
+.ProseMirror img {
+  max-width: 100%;
+  height: auto;
+  margin: 1em 0;
+  border-radius: 0.5rem;
+  cursor: default;
+  transition: all 0.2s ease-in-out;
+}
+
+.ProseMirror img[src^="data:"],
+.ProseMirror img[src^="http"] {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.ProseMirror img.ProseMirror-selectednode {
+  outline: 2px solid var(--border);
+  outline-offset: 2px;
+}
+
+.ProseMirror img.resizing {
+  user-select: none;
+  pointer-events: none;
+}
+
+.ProseMirror .group {
+  position: relative;
+  display: inline-block;
+}
+
+.ProseMirror .group:hover img,
+.ProseMirror .group:focus img {
+  outline: 2px solid var(--border);
+  outline-offset: 2px;
+}
+
+.ProseMirror img[data-link] {
+  cursor: pointer;
+}
+
+.ProseMirror img[style*="float: left"] {
+  margin-right: 1em;
+  margin-bottom: 1em;
+}
+
+.ProseMirror img[style*="float: right"] {
+  margin-left: 1em;
+  margin-bottom: 1em;
+}
+
+.ProseMirror hr {
+  margin: 1rem 0;
+  border-color: var(--border);
+}
+
+.ProseMirror blockquote {
+  padding-left: 1rem;
+  border-left: 2px solid var(--border);
+  margin: 1em 0;
+  color: var(--fg-muted);
+}
+
+.ProseMirror p.is-editor-empty:first-child::before {
+  color: var(--fg-muted);
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  pointer-events: none;
+}
+
+@media (min-width: 640px) {
+  .ProseMirror {
+    min-height: 300px;
+  }
+}
+
+@media (min-width: 768px) {
+  .ProseMirror {
+    min-height: 400px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .ProseMirror {
+    min-height: 400px;
+  }
+}
+
+/* Image wrapper styles */
+.ProseMirror .image-wrapper {
+  display: inline-block;
+  position: relative;
+  max-width: 100%;
+  vertical-align: top;
+  z-index: 1;
+}
+
+/* Image styles */
+.ProseMirror .editor-image {
+  height: auto;
+  display: block;
+  shape-outside: margin-box;
+  shape-margin: 1em;
+  float: left;
+  margin: 0.5em 1em 0.5em 0;
+}
+
+.ProseMirror .editor-image[data-float="right"] {
+  float: right;
+  margin: 0.5em 0 0.5em 1em;
+}
+
+/* Force text wrapping for all elements */
+.ProseMirror > * {
+  clear: none;
+}
+
+/* Ensure all block elements wrap around the image */
+.ProseMirror h1,
+.ProseMirror h2,
+.ProseMirror h3,
+.ProseMirror h4,
+.ProseMirror h5,
+.ProseMirror h6,
+.ProseMirror p,
+.ProseMirror ul,
+.ProseMirror ol,
+.ProseMirror blockquote,
+.ProseMirror pre {
+  clear: none;
+  position: relative;
+}
+
+/* Only clear floats at the very end of the editor */
+.ProseMirror:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+/* Selection styles */
+.ProseMirror .editor-image.ProseMirror-selectednode {
+  outline: 2px solid #4f46e5;
+  outline-offset: 2px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .ProseMirror .editor-image {
+    max-width: 100%;
+    float: none;
+    margin: 1em 0;
+  }
+}
+
+/* Placeholder text */
+.ProseMirror p.is-editor-empty:first-child::before {
+  color: var(--fg-muted);
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  pointer-events: none;
+}

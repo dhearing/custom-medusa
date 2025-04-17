@@ -1,0 +1,13 @@
+.ProseMirror {
+  img.editor-image {
+    position: relative;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto 1rem;
+    border-radius: 0.5rem;
+  }
+
+  img.editor-image:hover {
+    outline: 2px solid var(--border);
+  }
+} 
