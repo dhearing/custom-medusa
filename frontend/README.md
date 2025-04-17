@@ -145,6 +145,43 @@ This starter template includes a built-in blog and resources section accessible 
 
 This blog module provides a simple way to add marketing content, tutorials, announcements, or resource pages to your Medusa store without requiring additional CMS integration.
 
+# Adding Contact Us Section
+
+This starter template can be extended with a Contact Us section accessible at the `/contact-us` URL path. Follow these steps to implement a Contact Us page in your Medusa store:
+
+## Setting up the Contact Us Module
+
+1. **Create the Contact Us Page**:
+   - Create a new folder at `frontend/src/app/(main)/contact-us`
+   - Add a `page.tsx` file for the main contact form component
+
+2. **Implement the Contact Form**:
+   - Build a form with fields like Name, Email, Subject, and Message
+   - Add form validation using React Hook Form or similar
+   - Set up form submission handling to your backend
+
+3. **Backend Configuration**:
+   - Create a server route to handle form submissions
+   - Set up email notifications for received contact requests
+   - Implement spam protection (like reCAPTCHA)
+
+4. **Page Elements to Include**:
+   - Contact form with validation
+   - Business hours information
+   - Alternative contact methods (phone, email, social media)
+   - Map location (optional)
+   - FAQ section (optional)
+
+5. **Navigation Integration**:
+   - Add a link to the Contact Us page in your site's navigation menu
+   - Make sure the link points to `/contact-us`
+
+6. **Customizing the Contact Page**:
+   - You can modify the form components in `frontend/src/modules/contact/components/contact-form.tsx`
+   - Style the page according to your brand's look and feel using Tailwind CSS
+
+This contact module provides an essential communication channel between your customers and your support team, enhancing the overall user experience of your Medusa store.
+
 # Resources
 
 ## Learn more about Medusa

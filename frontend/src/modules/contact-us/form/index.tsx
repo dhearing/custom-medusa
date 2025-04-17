@@ -1,5 +1,4 @@
 "use client"
-import Input from "@modules/common/components/input"
 import { SubmitButton } from "@modules/checkout/components/submit-button"
 import ErrorMessage from "@modules/checkout/components/error-message"
 import { useActionState } from "react"
