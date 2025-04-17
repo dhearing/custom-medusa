@@ -28,8 +28,6 @@ const MainContent = () => {
                           typeof content === 'string' && 
                           hasActualContent(content);
   
-  console.log("Content:", content);
-  console.log("Has valid content:", hasValidContent);
   
   return (
     <div className="w-full border-ui-border-base relative p-8 small:p-0">

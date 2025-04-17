@@ -1,10 +1,10 @@
 import { MedusaService } from "@medusajs/framework/utils"
 import { BlogResourceContent } from "./models/blog_resource_content"
 
-class HomepageService extends MedusaService ({
+class BlogResourceService extends MedusaService ({
   BlogResourceContent,
 }) {
   
 }
 
-export default HomepageService
+export default BlogResourceService

@@ -2,10 +2,10 @@ import ContactUs from "@modules/contact-us"
 import { cookies } from "next/headers"
 
 export const metadata = {
-  title: "Contact Us | Residential Railing & Metal Works LLC",
+  title: "Contact Us | Store Name",
   description: "Contact our Customer Success team for more information and custom quotes",
   alternates: {
-    canonical: `https://www.residentialrailingsandmetalworks.com/contact-us`
+    canonical: `Store Url`
 }
 }
 

@@ -6,7 +6,7 @@ import MainContent from "@modules/home/main-content"
 import Slider from "@modules/home/slider"
 
 export const metadata: Metadata = {
-  title: "Residential Railing & Metal Works LLC",
+  title: "Store Name",
   description:
     "A performant frontend ecommerce starter template with Next.js 14 and Medusa.",
 }

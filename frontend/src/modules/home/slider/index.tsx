@@ -8,7 +8,7 @@ import { HomepageContext } from "@lib/context/homepage-context"
 const Slider = () => {
   const homepageData = useContext(HomepageContext)
   const images = [...(homepageData?.slider?.sort((a, b) => a.placement - b.placement) ?? [])]
-  console.log(images)
+
   return (
     <>
       {(homepageData?.slider && homepageData.slider.length > 0) ? (

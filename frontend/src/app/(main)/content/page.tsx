@@ -1,29 +1,17 @@
 import { Metadata } from "next"
-import { SortOptions } from "@modules/store/components/refinement-list/sort-products"
-import StoreTemplate from "@modules/store/templates"
-
+import ResourceTemplate from "@modules/store/templates/resources"
+import { getBlogData } from "@lib/data/blogs"
 export const metadata: Metadata = {
-  title: "Blogs & Resources | Residential Railing & Metal Works LLC",
+  title: "Blogs & Resources | Store Name",
   description:
-    "Blogs & Resources | Residential Railing & Metal Works LLC",
+    "Blogs & Resources | Store Name",
 }
 
-type Params = {
-  searchParams: Promise<{
-    sortBy?: SortOptions
-    page?: string
-  }>
-}
-
-export default async function Content(props: Params) {
-  const searchParams = await props.searchParams;
-  const { sortBy, page } = searchParams
-
+export default async function Content() {
+  const blogResourceContent = await getBlogData()
+  const content = blogResourceContent.content
+  
   return (
-    <StoreTemplate
-      sortBy={sortBy}
-      page={page}
-      countryCode={'us'}
-    />
+    <ResourceTemplate content={content} />
   )
 }

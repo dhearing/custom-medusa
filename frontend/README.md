@@ -109,6 +109,42 @@ NEXT_PUBLIC_STRIPE_KEY=<your-stripe-public-key>
 
 You'll also need to setup the integrations in your Medusa server. See the [Medusa documentation](https://docs.medusajs.com) for more information on how to configure [Stripe](https://docs.medusajs.com/resources/commerce-modules/payment/payment-provider/stripe#main).
 
+# Adding Blog & Resources Section
+
+This starter template includes a built-in blog and resources section accessible at the `/content` URL path. To add and manage blog posts or resources in the backend, follow these steps:
+
+## Setting up the Blog Module
+
+1. **Add Blog Content in Admin Panel**:
+   - Navigate to your Medusa admin panel
+   - Look for the "Blog & Resources" section in the sidebar menu
+   - Click "Add New" to create a new blog post or resource
+
+2. **Required Fields for Blog Posts**:
+   - **Title**: The title of your blog post or resource
+   - **Category**: Assign a category to help organize content
+   - **Description**: A brief summary of the content
+   - **Main Image**: Upload a featured image (supported format: JPG, PNG)
+     - For Google Drive images, use the direct link format
+   - **Link**: A unique identifier for the URL (will be part of the permalink)
+
+3. **Accessing Blog Content**:
+   - Frontend users can access all blog posts and resources at `/content`
+   - They can filter content by category using the sidebar navigation
+   - The "All Content" option shows all available posts across categories
+
+4. **Important Notes**:
+   - Ensure your content has valid image URLs
+   - The URL for accessing all blogs and resources is fixed at `/content`
+   - Each individual blog post will be accessible at `/content/[link]`
+   - Categories are automatically sorted alphabetically in the sidebar
+
+5. **Customizing the Blog Display**:
+   - You can modify the display components in `frontend/src/modules/resources/index.tsx`
+   - Category filtering logic is in `frontend/src/modules/store/components/refinement-list/resource-category-list/index.tsx`
+
+This blog module provides a simple way to add marketing content, tutorials, announcements, or resource pages to your Medusa store without requiring additional CMS integration.
+
 # Resources
 
 ## Learn more about Medusa
