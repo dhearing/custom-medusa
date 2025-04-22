@@ -14,7 +14,7 @@ module.exports = defineConfig({
     }
   },
   modules: [
-    ...["homepage", "navbar", "blogs-resources", "homepage-slider"].map(module => ({
+    ...["homepage", "navbar", "blogs-resources", "homepage-slider", "contact-us"].map(module => ({
       resolve: `./src/modules/${module}`
     }))
   ]

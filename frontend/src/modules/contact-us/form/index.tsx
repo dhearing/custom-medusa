@@ -9,6 +9,7 @@ type FormValues = {
   name: string
   email: string
   phone: string
+  subject: string
   message: string
 }
 const ContactUsForm = () => {
@@ -16,6 +17,7 @@ const ContactUsForm = () => {
     name: "",
     email: "",
     phone: "",
+    subject: "",
     message: ""
   })
   const [message, formAction] = useActionState(contactUsAction, null)
@@ -65,6 +67,16 @@ const ContactUsForm = () => {
           name="phone"
           onChange={handleChange}
           value={formData?.phone ?? ""}
+        />
+        <input
+          className="input input-xl input-block rounded border border-grey-2 border-l-[3px] mb-6"
+          type="text"
+          placeholder="Subject *"
+          name="subject"
+          onChange={handleChange}
+          value={formData?.subject ?? ""}
+          required
+          data-testid="contact-us-subject"
         />
         <textarea
           rows={4}

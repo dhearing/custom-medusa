@@ -9,7 +9,9 @@ export async function contactUsAction(
 ) {
   if (!formData) return "No form data received"
   const data = {
+    name: formData.get("name"),
     email: formData.get("email"),
+    phone: formData.get("phone"),
     subject: formData.get("subject"),
     message: formData.get("message"),
   }
@@ -21,11 +23,11 @@ export async function contactUsAction(
     }
     return "Only one contact request permitted per day"
   }
-  if (!data.email || !data.subject || !data.message) {
+  if (!data.name || !data.email || !data.subject || !data.message) {
     return "Please provide all of the required values before submitting"
   }
   try {
-    await sdk.client.fetch("/contact-us", {
+    await sdk.client.fetch("/store/contact-us", {
       method: "POST",
       body: data
     })
