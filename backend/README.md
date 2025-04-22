@@ -59,6 +59,30 @@ yarn npx medusa user -e admin@medusajs.com -p supersecret
 yarn dev
 ```
 
+### Step 6: Add custom database tables
+You need to add the custom tables for content management features:
+
+```bash
+# Generate migrations for each custom model
+yarn medusa db:generate blog_resource_content
+yarn medusa db:generate contact_us
+yarn medusa db:generate homepage_content
+yarn medusa db:generate homepage_slider_content
+yarn medusa db:generate navbar_content
+
+# Apply all migrations to the database
+yarn medusa db:migrate
+```
+
+These migrations will create all necessary tables for the custom content management features.
+
+### Step 7: Seed initial data
+After creating the necessary tables, seed the database with initial data:
+
+```bash
+yarn seed
+```
+
 Visit the [Quickstart Guide](https://docs.medusajs.com/learn) to set up a server.
 
 Visit the [Docs](https://docs.medusajs.com/learn#get-started) to learn more about our system requirements.
